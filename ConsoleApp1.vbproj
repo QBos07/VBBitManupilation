@@ -1,0 +1,63 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ConsoleApp2</RootNamespace>
+    <TargetFrameworks>net5.0;netcoreapp3.1;net48;net472;net60</TargetFrameworks>
+	  <Configurations>Debug;Release;Build</Configurations>
+	  <Platforms>AnyCPU;x64;x86</Platforms>
+	  <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+	  <AppendRuntimeIdentifierToOutputPath>true</AppendRuntimeIdentifierToOutputPath>
+	  <UseAppHost>true</UseAppHost>
+	  <StartupObject>ConsoleApp2.Programm</StartupObject>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="BenchmarkDotNet">
+			<Version>0.13.1</Version>
+		</PackageReference>
+	</ItemGroup>
+	
+	<PropertyGroup Condition="'$(Configuration)'=='Build'">
+		<Optimize>true</Optimize>
+		<DebugType>pdbonly</DebugType>
+		<DefineDebug>false</DefineDebug>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<Optimize>true</Optimize>
+		<DebugType>pdbonly</DebugType>
+		<DefineDebug>false</DefineDebug>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)'=='Debug'">
+		<Optimize>true</Optimize>
+		<DebugType>full</DebugType>
+		<DefineDebug>true</DefineDebug>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)'=='netcoreapp3.1'">
+
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)'=='net35'">
+
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)'=='net5.0'">
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+	</PropertyGroup>
+
+	<PropertyGroup Label="RIDs">
+		<RuntimeIdentifiers Condition="'$(TargetFramework)#$(Platform)' == 'net48#AnyCPU'">win;win7;win8;win81</RuntimeIdentifiers>
+		<RuntimeIdentifiers Condition="'$(TargetFramework)#$(Platform)' == 'net48#x86'">win-x86;win7-x86;win8-x86;win81-x86</RuntimeIdentifiers>
+		<RuntimeIdentifiers Condition="'$(TargetFramework)#$(Platform)' == 'net48#x86'">win-x64;win7-x64;win8-x64;win81-x64</RuntimeIdentifiers>
+		<RuntimeIdentifiers Condition="'$(TargetFramework)#$(Platform)' == 'netcoreapp3.1#AnyCPU'">win;win7</RuntimeIdentifiers>
+		<RuntimeIdentifiers Condition="'$(TargetFramework)#$(Platform)' == 'netcoreapp3.1#x86'">win-x86;win7-x86</RuntimeIdentifiers>
+		<RuntimeIdentifiers Condition="'$(TargetFramework)#$(Platform)' == 'netcoreapp3.1#x64'">win-x64;win7-x64</RuntimeIdentifiers>
+		<RuntimeIdentifiers Condition="'$(TargetFramework)#$(Platform)' == 'net5.0#AnyCPU'">unix;linux;win;win7;win8;win81;win10</RuntimeIdentifiers>
+		<RuntimeIdentifiers Condition="'$(TargetFramework)#$(Platform)' == 'net5.0#x86'">unix-x86;linux-x86;win-x86;win7-x86;win8-x86;win81-x86;win10-x86</RuntimeIdentifiers>
+		<RuntimeIdentifiers Condition="'$(TargetFramework)#$(Platform)' == 'net5.0#x64'">unix-x64;linux-x64;win-x64;win7-x64;win8-x64;win81-x64;win10-x64</RuntimeIdentifiers>
+		<RuntimeIdentifiers Condition="'$(TargetFramework)#$(Platform)' == 'net472#AnyCPU'">win;win7;win8;win81</RuntimeIdentifiers>
+		<RuntimeIdentifiers Condition="'$(TargetFramework)#$(Platform)' == 'net472#x86'">win-x86;win7-x86;win8-x86;win81-x86</RuntimeIdentifiers>
+		<RuntimeIdentifiers Condition="'$(TargetFramework)#$(Platform)' == 'net472#x86'">win-x64;win7-x64;win8-x64;win81-x64</RuntimeIdentifiers>
+		<RuntimeIdentifiers Condition="'$(TargetFramework)#$(Platform)' == 'net6.0#AnyCPU'">unix;linux;win;win7;win8;win81;win10</RuntimeIdentifiers>
+		<RuntimeIdentifiers Condition="'$(TargetFramework)#$(Platform)' == 'net6.0#x86'">unix-x86;linux-x86;win-x86;win7-x86;win8-x86;win81-x86;win10-x86</RuntimeIdentifiers>
+		<RuntimeIdentifiers Condition="'$(TargetFramework)#$(Platform)' == 'net6.0#x64'">unix-x64;linux-x64;win-x64;win7-x64;win8-x64;win81-x64;win10-x64</RuntimeIdentifiers>
+	</PropertyGroup>
+</Project>
